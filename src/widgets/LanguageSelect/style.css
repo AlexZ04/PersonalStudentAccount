@@ -13,11 +13,21 @@
 
     align-items: center;
 
-    /* border: 1px solid #ccc; */
     cursor: pointer;
 
     height: 44px;
     border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.select__right-part {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
 }
 
 .select__flag,
@@ -30,10 +40,6 @@
 
 .select__icon {
     width: 24px;
-}
-
-.England {
-    display: none;
 }
 
 .flag-img {
