@@ -3,7 +3,9 @@ import { changeLanguage, getCurrentLanguage } from "../../app/Functions";
 import "./style.css";
 
 export function LanguageSelect() {
-    const [text, setText] = useState<string>("Русский");
+    const [text, setText] = useState<string>(
+        getCurrentLanguage() === "ru" ? "Русский" : "English"
+    );
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -49,11 +51,19 @@ export function LanguageSelect() {
                     <div className="select__flag">
                         <img
                             src="src/assets/ru.png"
-                            className="flag-img Russian"
+                            className={
+                                getCurrentLanguage() === "en"
+                                    ? "flag-img Russian hidden"
+                                    : "flag-img Russian"
+                            }
                         ></img>
                         <img
                             src="src/assets/en.png"
-                            className="flag-img England hidden"
+                            className={
+                                getCurrentLanguage() === "ru"
+                                    ? "flag-img England hidden"
+                                    : "flag-img England"
+                            }
                         ></img>
                     </div>
 
