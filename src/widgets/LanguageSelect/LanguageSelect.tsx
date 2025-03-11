@@ -1,46 +1,19 @@
-import { useState, useEffect, useRef } from "react";
-import { changeLanguage, getCurrentLanguage } from "../../app/Functions";
+import { useRef } from "react";
+import { useLanguage } from "../../hooks/useLanguage.ts";
 import STRINGS from "../../constants/strings.tsx";
 import "./style.css";
+import { useClickOutside } from "../../hooks/useClickOutside.ts";
 
 export function LanguageSelect() {
-    const [text, setText] = useState<string>(
-        getCurrentLanguage() === "ru" ? STRINGS.RUSSIAN : STRINGS.ENGLISH
-    );
+    const { language, text, switchLanguage } = useLanguage();
     const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (ref.current && !ref.current.contains(event.target as Node)) {
-                const select = document.querySelector(".select");
-
-                select?.classList.remove("is-active");
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
+    useClickOutside(ref, () => {
+        document.querySelector(".select")?.classList.remove("is-active");
     });
 
     const handleSelectClick = () => {
-        const select = document.querySelector(".select");
-
-        select?.classList.toggle("is-active");
-    };
-
-    const handleRussianLanguage = () => {
-        handleSelectClick;
-        changeLanguage("ru");
-        document.querySelector(".Russian")?.classList.remove("hidden");
-        document.querySelector(".England")?.classList.add("hidden");
-        setText("Русский");
-    };
-
-    const handleEnglishLanguage = () => {
-        handleSelectClick;
-        changeLanguage("en");
-        document.querySelector(".Russian")?.classList.add("hidden");
-        document.querySelector(".England")?.classList.remove("hidden");
-        setText("English");
+        document.querySelector(".select")?.classList.toggle("is-active");
     };
 
     return (
@@ -52,19 +25,15 @@ export function LanguageSelect() {
                     <div className="select__flag">
                         <img
                             src="src/assets/ru.png"
-                            className={
-                                getCurrentLanguage() === "en"
-                                    ? "flag-img Russian hidden"
-                                    : "flag-img Russian"
-                            }
+                            className={`flag-img Russian ${
+                                language === "en" ? "hidden" : ""
+                            }`}
                         ></img>
                         <img
                             src="src/assets/en.png"
-                            className={
-                                getCurrentLanguage() === "ru"
-                                    ? "flag-img England hidden"
-                                    : "flag-img England"
-                            }
+                            className={`flag-img English ${
+                                language === "ru" ? "hidden" : ""
+                            }`}
                         ></img>
                     </div>
 
@@ -78,11 +47,17 @@ export function LanguageSelect() {
             </div>
 
             <div className="select__body">
-                <div className="select__item" onClick={handleEnglishLanguage}>
+                <div
+                    className="select__item"
+                    onClick={() => switchLanguage("en")}
+                >
                     <span>{STRINGS.ENGLISH}</span>
                     <img src="src/assets/en.png" className="flag-img"></img>
                 </div>
-                <div className="select__item" onClick={handleRussianLanguage}>
+                <div
+                    className="select__item"
+                    onClick={() => switchLanguage("ru")}
+                >
                     <span>{STRINGS.RUSSIAN}</span>
                     <img src="src/assets/ru.png" className="flag-img"></img>
                 </div>
