@@ -1,0 +1,31 @@
+.error-line {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 150vw;
+    background-color: #375fff;
+    height: 110px;
+
+    color: white;
+    gap: 100px;
+
+    font-weight: 700;
+    font-size: 48px;
+
+    border: 1px solid white;
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+.right-rotation-line {
+    transform: rotate(-36deg);
+    left: 630px;
+    top: 100px;
+}
+
+.left-rotation-line {
+    transform: rotate(34deg);
+    top: 100px;
+    z-index: -2;
+}

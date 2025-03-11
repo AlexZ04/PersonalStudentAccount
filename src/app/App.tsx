@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "../widgets/LanguageSelect/LanguageSelect";
-import "./style.css";
 import { Routes, Route } from "react-router";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import errorInfo from "../entitites/errorInfo";
+import "./style.css";
 
 function App() {
     const { t } = useTranslation();

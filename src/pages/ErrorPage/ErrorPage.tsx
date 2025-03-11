@@ -1,26 +1,32 @@
 import { BackToMainPageBtn } from "../../shared/BackToMainPageBtn";
 import STRINGS from "../../constants/strings";
 import ErrorInfoProps from "../../entitites/ErrorInfoProps";
+import { ErrorLine } from "../../shared/ErrorLine/ErrorLine";
 import "./style.css";
 
 export function ErrorPage({ info }: ErrorInfoProps) {
     return (
-        <div className="error-page-container">
-            <div className="error-code">{info.code}</div>
+        <>
+            <div className="error-page-container">
+                <div className="error-code">{info.code}</div>
 
-            <div className="error-title">
-                <div className="error-title__text">
-                    <p>{info.title[1]}</p>
-                    <p>{info.title[0]}</p>
+                <div className="error-title">
+                    <div className="error-title__text">
+                        <span>{info.title[1]}</span>
+                        <span>{info.title[0]}</span>
+                    </div>
+
+                    <BackToMainPageBtn />
                 </div>
 
-                <BackToMainPageBtn />
+                <div className="error-description">
+                    <span>{STRINGS.WHAT_HAPPENED}</span>
+                    <span>{info.message}</span>
+                </div>
             </div>
 
-            <div className="error-description">
-                <p>{STRINGS.WHAT_HAPPENED}</p>
-                <p>{info.message}</p>
-            </div>
-        </div>
+            <ErrorLine rotation="right-rotation-line" />
+            <ErrorLine rotation="left-rotation-line" />
+        </>
     );
 }
