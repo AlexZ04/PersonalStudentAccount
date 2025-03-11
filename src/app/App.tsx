@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "../widgets/LanguageSelect/LanguageSelect";
 import "./style.css";
 import { Routes, Route } from "react-router";
-import { NotFoundPage } from "../pages/ErrorPages/NotFoundPage";
+import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
+import errorInfo from "../entitites/errorInfo";
 
 function App() {
     const { t } = useTranslation();
@@ -19,7 +20,10 @@ function App() {
                 }
             />
 
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+                path="*"
+                element={<ErrorPage info={errorInfo.pageNotFound} />}
+            />
         </Routes>
     );
 }

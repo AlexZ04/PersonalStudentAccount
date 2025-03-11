@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useLanguage } from "../../hooks/useLanguage.ts";
-import STRINGS from "../../constants/strings.tsx";
+import STRINGS from "../../constants/strings.ts";
 import "./style.css";
 import { useClickOutside } from "../../hooks/useClickOutside.ts";
 
