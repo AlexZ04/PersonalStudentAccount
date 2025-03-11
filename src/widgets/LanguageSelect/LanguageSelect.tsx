@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { changeLanguage, getCurrentLanguage } from "../../app/Functions";
+import STRINGS from "../../constants/strings.tsx";
 import "./style.css";
 
 export function LanguageSelect() {
     const [text, setText] = useState<string>(
-        getCurrentLanguage() === "ru" ? "Русский" : "English"
+        getCurrentLanguage() === "ru" ? STRINGS.RUSSIAN : STRINGS.ENGLISH
     );
     const ref = useRef<HTMLDivElement>(null);
 
@@ -78,11 +79,11 @@ export function LanguageSelect() {
 
             <div className="select__body">
                 <div className="select__item" onClick={handleEnglishLanguage}>
-                    <span>English</span>
+                    <span>{STRINGS.ENGLISH}</span>
                     <img src="src/assets/en.png" className="flag-img"></img>
                 </div>
                 <div className="select__item" onClick={handleRussianLanguage}>
-                    <span>Русский</span>
+                    <span>{STRINGS.RUSSIAN}</span>
                     <img src="src/assets/ru.png" className="flag-img"></img>
                 </div>
             </div>
