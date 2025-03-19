@@ -1,25 +1,19 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import StringProps from "../../entities/stringProps";
+import InputFieldProps from "../../entities/InputFieldProps";
 
-export function InputField({ string }: StringProps) {
-    const [value, setValue] = useState("");
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
-    };
-
+export function InputField({ name, value, onChange }: InputFieldProps) {
     const { t } = useTranslation();
 
     return (
         <>
             <fieldset className="input-fieldset">
-                <legend>{t(string)}</legend>
+                <legend>{t(name)}</legend>
                 <input
-                    type={string === "password" ? "password" : "text"}
+                    type={name === "password" ? "password" : "text"}
                     className="input-field"
                     value={value}
-                    onChange={handleChange}
+                    onChange={(e) => onChange(name, e.target.value)}
                 />
             </fieldset>
         </>

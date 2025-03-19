@@ -1,19 +1,14 @@
 import Switch from "react-switch";
 import { useState } from "react";
+import SwitchProps from "../entities/SwitchProps";
 
-export function SwitchBtn() {
-    const [checked, setChecked] = useState(false);
-
-    const handleChange = (nextChecked: boolean) => {
-        setChecked(nextChecked);
-    };
-
+export function SwitchBtn({ checked, onChange }: SwitchProps) {
     return (
         <>
             <Switch
                 className="switch"
                 checked={checked}
-                onChange={handleChange}
+                onChange={onChange}
                 uncheckedIcon={false}
                 checkedIcon={false}
                 onColor="#375fff"
