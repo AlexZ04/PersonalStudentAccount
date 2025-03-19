@@ -1,7 +1,10 @@
 .select {
     width: 147px;
-    position: relative;
-    box-shadow: 1px black;
+    /* position: relative; */
+
+    position: absolute;
+    right: 8dvw;
+    top: 3dvh;
 }
 
 .select.is-active .select__body {
@@ -56,6 +59,10 @@
     font-size: 16px;
     line-height: 120%;
     padding: 8px 12px;
+}
+
+.select__item {
+    box-shadow: 5px 2px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .select__body {

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import RotationProps from "../../entitites/RotationProps";
+import RotationProps from "../../entities/RotationProps";
 import "./style.css";
 
 export function ErrorLine({ rotation }: RotationProps) {

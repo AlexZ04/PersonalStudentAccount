@@ -1,6 +1,5 @@
 import { BackToMainPageBtn } from "../../shared/BackToMainPageBtn";
-import STRINGS from "../../constants/strings";
-import ErrorInfoProps from "../../entitites/ErrorInfoProps";
+import ErrorInfoProps from "../../entities/ErrorInfoProps";
 import { ErrorLine } from "../../shared/ErrorLine/ErrorLine";
 import "./style.css";
 import { useTranslation } from "react-i18next";

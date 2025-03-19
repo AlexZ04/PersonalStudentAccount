@@ -1,7 +1,7 @@
 import ERROR_TITLES from "../constants/errorTitles";
 import ERROR_MESSAGES from "../constants/errorMessages";
 
-const errorInfo = {
+const ErrorInfo = {
     pageNotFound: {
         title: ERROR_TITLES.NOT_FOUND,
         message: ERROR_MESSAGES.NOT_FOUND,
@@ -9,4 +9,4 @@ const errorInfo = {
     },
 };
 
-export default errorInfo;
+export default ErrorInfo;

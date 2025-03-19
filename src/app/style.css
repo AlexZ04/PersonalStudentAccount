@@ -5,6 +5,12 @@
     font-family: "Raleway", sans-serif;
 }
 
+body {
+    background-color: #efefef;
+    margin: 0;
+    padding: 0;
+}
+
 .blue {
     background-color: #375fff;
 }

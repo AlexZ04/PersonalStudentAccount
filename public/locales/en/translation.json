@@ -3,5 +3,10 @@
     "error": "Error",
     "back_to_main_page": "BACK TO MAIN PAGE",
     "what_happened": "What happened?",
-    "NOT_FOUND": "Probably this page does not exist or you made a mistake when entering the address in the browser line"
+    "NOT_FOUND": "Probably this page does not exist or you made a mistake when entering the address in the browser line",
+    "login_to_account": "Login to account",
+    "enter": "ENTER",
+    "remember_me": "Remember me",
+    "email": "Email",
+    "password": "Password"
 }

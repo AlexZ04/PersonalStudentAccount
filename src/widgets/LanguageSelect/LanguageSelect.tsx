@@ -9,7 +9,7 @@ export function LanguageSelect() {
     const ref = useRef<HTMLDivElement>(null);
 
     useClickOutside(ref, () => {
-        ref.current?.classList.remove("is-active"); // исправить через ref
+        ref.current?.classList.remove("is-active");
     });
 
     const handleSelectClick = () => {
