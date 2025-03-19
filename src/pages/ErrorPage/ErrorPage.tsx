@@ -3,8 +3,11 @@ import STRINGS from "../../constants/strings";
 import ErrorInfoProps from "../../entitites/ErrorInfoProps";
 import { ErrorLine } from "../../shared/ErrorLine/ErrorLine";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 export function ErrorPage({ info }: ErrorInfoProps) {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="error-page-container">
@@ -20,8 +23,8 @@ export function ErrorPage({ info }: ErrorInfoProps) {
                 </div>
 
                 <div className="error-description">
-                    <span>{STRINGS.WHAT_HAPPENED}</span>
-                    <span>{info.message}</span>
+                    <span>{t("what_happened")}</span>
+                    <span>{t(info.message)}</span>
                 </div>
             </div>
 

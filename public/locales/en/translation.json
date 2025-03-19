@@ -1,3 +1,7 @@
 {
-    "test": "test"
+    "test": "test",
+    "error": "Error",
+    "back_to_main_page": "BACK TO MAIN PAGE",
+    "what_happened": "What happened?",
+    "NOT_FOUND": "Probably this page does not exist or you made a mistake when entering the address in the browser line"
 }

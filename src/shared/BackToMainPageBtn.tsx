@@ -1,12 +1,14 @@
-import STRINGS from "../constants/strings.ts";
+import { useTranslation } from "react-i18next";
 
 export function BackToMainPageBtn() {
+    const { t } = useTranslation();
+
     return (
         <button
             className="blue btn"
             onClick={() => (window.location.href = "/")}
         >
-            {STRINGS.BACK_TO_MAIN_PAGE}
+            {t("back_to_main_page")}
         </button>
     );
 }

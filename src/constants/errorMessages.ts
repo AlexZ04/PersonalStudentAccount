@@ -1,6 +1,5 @@
 const ERROR_MESSAGES = {
-    NOT_FOUND:
-        "Вероятно такой страницы не существует или вы ошиблись при вводе адреса в строку браузера",
+    NOT_FOUND: "NOT_FOUND",
 };
 
 export default ERROR_MESSAGES;
