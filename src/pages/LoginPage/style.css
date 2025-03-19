@@ -71,3 +71,21 @@ input:active {
     margin-bottom: 10px;
     border-radius: 8px;
 }
+
+@media (max-width: 600px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-image {
+        width: 65%;
+    }
+
+    .login-field-container {
+        width: 80%;
+    }
+
+    .select__current {
+        display: none;
+    }
+}
