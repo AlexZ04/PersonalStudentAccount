@@ -1,5 +1,4 @@
 import Switch from "react-switch";
-import { useState } from "react";
 import SwitchProps from "../entities/SwitchProps";
 
 export function SwitchBtn({ checked, onChange }: SwitchProps) {
