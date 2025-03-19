@@ -2,7 +2,7 @@
     position: fixed;
     display: flex;
     align-items: center;
-    width: 150vw;
+    width: 200vw;
     background-color: #375fff;
     height: 110px;
 
@@ -20,12 +20,18 @@
 
 .right-rotation-line {
     transform: rotate(-36deg);
-    left: 630px;
-    top: 100px;
+    top: 20%;
 }
 
 .left-rotation-line {
     transform: rotate(34deg);
-    top: 100px;
+    top: 50%;
+    left: -10%;
     z-index: -2;
+}
+
+@media (max-width: 1000px) {
+    .error-line {
+        display: none;
+    }
 }

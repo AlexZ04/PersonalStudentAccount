@@ -1,32 +1,63 @@
 .error-page-container {
     position: absolute;
-    left: 200px;
+    left: 10%;
 }
 
 .error-code {
     color: #375fff;
-    font-size: 380px;
+    font-size: 23rem;
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 .error-title {
     display: flex;
     align-items: end;
-    gap: 68px;
+    gap: 6dvw;
 
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
 .error-title__text {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 3dvh;
 }
 
 .error-description {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    width: 465px;
+    gap: 2.1dvh;
+    width: 26dvw;
     margin-top: 5%;
+}
+
+@media (max-width: 1000px) {
+    .error-code {
+        font-size: 18rem;
+    }
+
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-description {
+        width: 26dvw;
+        gap: 0;
+    }
+}
+
+@media (max-width: 730px) {
+    .error-title {
+        gap: 0;
+        display: block;
+    }
+
+    .error-code {
+        font-size: 40dvw;
+    }
+
+    .error-description {
+        width: 70%;
+    }
 }
