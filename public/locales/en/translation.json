@@ -8,5 +8,8 @@
     "enter": "ENTER",
     "remember_me": "Remember me",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import InputFieldProps from "../../entities/InputFieldProps";
+import InputFieldProps from "../../props/InputFieldProps";
 
 export function InputField({ name, value, onChange }: InputFieldProps) {
     const { t } = useTranslation();

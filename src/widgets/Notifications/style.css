@@ -1,0 +1,79 @@
+.notification {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+
+    height: 96px;
+    width: 260px;
+
+    border: 1px solid gray;
+    border-radius: 8px;
+
+    /* opacity: 0; */
+    transition: all 1s ease;
+}
+
+.notification__header {
+    height: 40px;
+    border-radius: 8px 8px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 24px;
+    align-items: center;
+}
+
+.notification__header__left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notif-icon {
+    height: 18px;
+}
+
+.notif-icon-x {
+    cursor: pointer;
+    height: 12px;
+}
+
+.notification__body {
+    height: 56px;
+    padding: 8px 24px;
+
+    display: flex;
+    align-items: center;
+}
+
+.success-notification .notification__header {
+    background-color: #39882c4d;
+}
+
+.success-notification span {
+    color: #39882c;
+}
+
+.error-notification .notification__header {
+    background-color: #ff57574d;
+}
+
+.error-notification span {
+    color: #ff5757;
+}
+
+.info-notification .notification__header {
+    background-color: #2196f34d;
+}
+
+.info-notification span {
+    color: #2196f3;
+}
+
+.warning-notification .notification__header {
+    background-color: #e784004d;
+}
+
+.warning-notification span {
+    color: #e78400;
+}

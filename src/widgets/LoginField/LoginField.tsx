@@ -35,7 +35,7 @@ export function LoginField() {
 
                 if (res.loginSucceeded) {
                     // todo
-                    // navigator("/");
+                    navigator("/");
                 }
             })
             .catch((error) => {
