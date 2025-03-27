@@ -18,6 +18,8 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
                     <div className="menu-arrow" onClick={handleOpen}></div>
 
                     <Navigation activeField={activeField} />
+
+                    <div className="blur"></div>
                 </div>
             </div>
             <img
