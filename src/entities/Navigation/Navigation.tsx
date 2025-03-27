@@ -8,11 +8,11 @@ import "./style.css";
 export function Navigation() {
     return (
         <div className="menu-navigation">
-            <ProfileNavBtn />
-            <AdminNavBtn />
-            <DocumentsNavBtn />
-            <LinksNavBtn />
-            <EventsNavBtn />
+            <ProfileNavBtn isActive={false} />
+            <AdminNavBtn isActive={false} />
+            <DocumentsNavBtn isActive={false} />
+            <LinksNavBtn isActive={false} />
+            <EventsNavBtn isActive={false} />
         </div>
     );
 }

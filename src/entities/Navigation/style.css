@@ -33,6 +33,8 @@
 
 .navigation-field-active {
     background-color: #375fff1a;
+
+    border-left: 4px solid #375fff;
 }
 
 .navigation-field-active a {
