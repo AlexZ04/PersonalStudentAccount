@@ -16,7 +16,7 @@ export function MainPage() {
 
     return (
         <>
-            <SideMenu />
+            <SideMenu activeField="events" />
             <HeaderMenu />
 
             <Notification

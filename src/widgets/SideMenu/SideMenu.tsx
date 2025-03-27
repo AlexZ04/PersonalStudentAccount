@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Navigation } from "../../entities/Navigation/Navigation";
+import ActiveNavigationProps from "../../props/ActiveNavigationProps";
 import "./style.css";
 
-export function SideMenu() {
+export function SideMenu({ activeField }: ActiveNavigationProps) {
     const [isOpen, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -15,7 +16,7 @@ export function SideMenu() {
                 <div className="mini-profile-pict"></div>
                 <div className="menu-arrow" onClick={handleOpen}></div>
 
-                <Navigation />
+                <Navigation activeField={activeField} />
             </div>
             <div className="side-menu__body"></div>
         </div>
