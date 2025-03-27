@@ -1,0 +1,31 @@
+import { useTranslation } from "react-i18next";
+import { HeaderMenu } from "../../widgets/HeaderMenu/HeaderMenu";
+import { Notification } from "../../widgets/Notifications/Notification";
+import { useState } from "react";
+
+export function MainPage() {
+    const { t } = useTranslation();
+
+    const [notifVis, setVis] = useState(false);
+
+    const handleClick = () => {
+        setVis(!notifVis);
+        setTimeout(() => setVis(false), 1000);
+    };
+
+    return (
+        <div>
+            <HeaderMenu />
+
+            <Notification
+                text="wrong_credentials"
+                type="error"
+                visible={notifVis ? true : false}
+            />
+
+            <h1 className={notifVis ? "" : "hidden"}>aaa</h1>
+
+            <button onClick={handleClick}>aa</button>
+        </div>
+    );
+}

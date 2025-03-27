@@ -1,0 +1,9 @@
+.header-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    position: absolute;
+    right: 6dvw;
+    top: 3dvh;
+}

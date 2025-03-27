@@ -11,5 +11,6 @@
     "password": "Password",
     "success": "Success",
     "warning": "Warning",
-    "info": "Info"
+    "info": "Info",
+    "wrong_credentials": "Wrong credentials!"
 }

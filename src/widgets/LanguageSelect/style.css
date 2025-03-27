@@ -1,12 +1,17 @@
 .select {
     width: 147px;
-    /* position: relative; */
 
     position: absolute;
     right: 8dvw;
     top: 3dvh;
 
     z-index: 1;
+}
+
+.header-menu .select {
+    position: relative;
+    right: 0;
+    top: 0;
 }
 
 .select.is-active .select__body {

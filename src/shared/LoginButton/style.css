@@ -1,0 +1,19 @@
+.global-login-btn {
+    height: 40px !important;
+    width: 1dvw !important;
+    font-size: 12px !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 730px) {
+    .global-login-btn {
+        font-size: 8px !important;
+        width: 10px !important;
+        height: 20px !important;
+
+        padding: 8px 20px;
+    }
+}
