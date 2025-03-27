@@ -11,7 +11,7 @@ export function DocumentsNavBtn({ isActive }: IsActiveProps) {
             className={`navigation-field ${
                 isActive ? "navigation-field-active" : ""
             }`}
-            onClick={() => navigator("/login")}
+            onClick={() => navigator("/certificates")}
         >
             <img
                 className="navigation-icon"

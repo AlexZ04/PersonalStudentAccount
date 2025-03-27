@@ -11,7 +11,7 @@ export function ProfileNavBtn({ isActive }: IsActiveProps) {
             className={`navigation-field ${
                 isActive ? "navigation-field-active" : ""
             }`}
-            onClick={() => navigator("/login")}
+            onClick={() => navigator("/profile")}
         >
             <img
                 className="navigation-icon"

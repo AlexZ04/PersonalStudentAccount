@@ -11,7 +11,7 @@ export function LinksNavBtn({ isActive }: IsActiveProps) {
             className={`navigation-field ${
                 isActive ? "navigation-field-active" : ""
             }`}
-            onClick={() => navigator("/login")}
+            onClick={() => navigator("/admin/usefulservices")}
         >
             <img
                 className="navigation-icon"
