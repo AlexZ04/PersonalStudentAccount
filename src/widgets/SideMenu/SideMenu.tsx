@@ -11,14 +11,20 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
     };
 
     return (
-        <div className={`side-menu ${isOpen ? "open" : ""}`}>
-            <div className="side-menu__head">
-                <div className="mini-profile-pict"></div>
-                <div className="menu-arrow" onClick={handleOpen}></div>
+        <>
+            <div className={`side-menu ${isOpen ? "open" : ""}`}>
+                <div className="side-menu__head">
+                    <div className="mini-profile-pict"></div>
+                    <div className="menu-arrow" onClick={handleOpen}></div>
 
-                <Navigation activeField={activeField} />
+                    <Navigation activeField={activeField} />
+                </div>
             </div>
-            <div className="side-menu__body"></div>
-        </div>
+            <img
+                src="src/assets/SideNavigation/menu-small-screen.png"
+                className={`small-menu-btn ${isOpen ? "hidden" : ""}`}
+                onClick={handleOpen}
+            ></img>
+        </>
     );
 }

@@ -5,7 +5,7 @@
     width: 10dvw;
     height: 100dvh;
 
-    transition: width 1s ease;
+    transition: all 1s ease;
 }
 
 .open {
@@ -53,4 +53,28 @@
 .open .menu-arrow {
     background-image: url("src/assets/SideNavigation/menu-open.png");
     left: calc(20dvw - 13px);
+}
+
+.small-menu-btn {
+    display: none;
+    cursor: pointer;
+    height: 12px;
+
+    position: absolute;
+    left: 6dvw;
+    top: 6dvh;
+}
+
+@media (max-width: 1200px) {
+    .side-menu {
+        opacity: 0;
+    }
+
+    .open {
+        opacity: 1 !important;
+    }
+
+    .small-menu-btn {
+        display: block;
+    }
 }
