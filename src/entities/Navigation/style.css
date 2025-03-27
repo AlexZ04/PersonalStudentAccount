@@ -1,0 +1,51 @@
+.menu-navigation {
+    margin-top: 40px;
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.menu-navigation button {
+    width: 100%;
+}
+
+.navigation-field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+    gap: 20px;
+
+    transition: all 1s ease;
+
+    justify-content: center;
+    margin-left: 0;
+    cursor: pointer;
+
+    font-size: 0.8rem;
+}
+
+.navigation-field:hover {
+    background-color: #efefef;
+}
+
+.navigation-field-text {
+    display: none;
+}
+
+.open .navigation-field-text {
+    display: block;
+}
+
+.open .navigation-field {
+    /* margin-left: 30px; */
+    padding: 10px 30px;
+    gap: 20px;
+    justify-content: left;
+}
+
+.navigation-icon {
+    width: 22px;
+}

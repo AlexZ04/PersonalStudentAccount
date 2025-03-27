@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { MainPage } from "../pages/MainPage/MainPage";
-import ErrorInfo from "../entities/ErrorInfo";
+import ErrorInfo from "../constants/ErrorInfo";
 import "./style.css";
 
 function App() {

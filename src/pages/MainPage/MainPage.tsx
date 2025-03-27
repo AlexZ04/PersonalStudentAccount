@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { HeaderMenu } from "../../widgets/HeaderMenu/HeaderMenu";
 import { Notification } from "../../widgets/Notifications/Notification";
 import { useState } from "react";
+import { SideMenu } from "../../widgets/SideMenu/SideMenu";
 
 export function MainPage() {
     const { t } = useTranslation();
@@ -14,7 +15,8 @@ export function MainPage() {
     };
 
     return (
-        <div>
+        <>
+            <SideMenu />
             <HeaderMenu />
 
             <Notification
@@ -22,10 +24,6 @@ export function MainPage() {
                 type="error"
                 visible={notifVis ? true : false}
             />
-
-            <h1 className={notifVis ? "" : "hidden"}>aaa</h1>
-
-            <button onClick={handleClick}>aa</button>
-        </div>
+        </>
     );
 }

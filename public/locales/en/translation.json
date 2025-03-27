@@ -12,5 +12,10 @@
     "success": "Success",
     "warning": "Warning",
     "info": "Info",
-    "wrong_credentials": "Wrong credentials!"
+    "wrong_credentials": "Wrong credentials!",
+    "nav_profile": "Profile",
+    "nav_admin": "Administration",
+    "nav_documents": "Documents",
+    "nav_links": "Useful services",
+    "nav_events": "Events"
 }

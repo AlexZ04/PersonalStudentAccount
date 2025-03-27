@@ -12,5 +12,10 @@
     "success": "Успех",
     "warning": "Предупреждение",
     "info": "Информация",
-    "wrong_credentials": "Неверные данные!"
+    "wrong_credentials": "Неверные данные!",
+    "nav_profile": "Профиль",
+    "nav_admin": "Администрирование",
+    "nav_documents": "Справки",
+    "nav_links": "Полезные сервисы",
+    "nav_events": "Мероприятия"
 }
