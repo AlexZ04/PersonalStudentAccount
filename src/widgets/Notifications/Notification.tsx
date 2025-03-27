@@ -21,13 +21,13 @@ export function Notification({ type, text, visible }: NotificationProps) {
             <div className="notification__header">
                 <div className="notification__header__left">
                     <img
-                        src={`src/assets/${type}-notif.png`}
+                        src={`src/assets/Notifications/${type}-notif.png`}
                         className="notif-icon"
                     ></img>
                     <span>{t(type)}</span>
                 </div>
                 <img
-                    src={`src/assets/${type}-x.png`}
+                    src={`src/assets/Notifications/${type}-x.png`}
                     className="notif-icon-x"
                     onClick={handleClose}
                 ></img>

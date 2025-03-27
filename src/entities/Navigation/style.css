@@ -31,6 +31,14 @@
     background-color: #efefef;
 }
 
+.navigation-field-active {
+    background-color: #375fff1a;
+}
+
+.navigation-field-active a {
+    color: #375fff;
+}
+
 .navigation-field-text {
     display: none;
 }

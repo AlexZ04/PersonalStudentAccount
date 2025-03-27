@@ -9,7 +9,7 @@ export function AdminNavBtn() {
         <div className="navigation-field" onClick={() => navigator("/login")}>
             <img
                 className="navigation-icon"
-                src="src/assets/nav-admin.png"
+                src="src/assets/SideNavigation/nav-admin.png"
             ></img>
             <a className="navigation-field-text">{t("nav_admin")}</a>
         </div>

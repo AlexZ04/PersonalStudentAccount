@@ -24,13 +24,13 @@ export function LanguageSelect() {
                 <div className="select__right-part">
                     <div className="select__flag">
                         <img
-                            src="src/assets/ru.png"
+                            src="src/assets/LangSelect/ru.png"
                             className={`flag-img Russian ${
                                 language === "en" ? "hidden" : ""
                             }`}
                         ></img>
                         <img
-                            src="src/assets/en.png"
+                            src="src/assets/LangSelect/en.png"
                             className={`flag-img English ${
                                 language === "ru" ? "hidden" : ""
                             }`}
@@ -39,7 +39,7 @@ export function LanguageSelect() {
 
                     <div className="select__icon">
                         <img
-                            src="src/assets/arrow-down.png"
+                            src="src/assets/LangSelect/arrow-down.png"
                             className="arrow-img"
                         ></img>
                     </div>
@@ -52,14 +52,20 @@ export function LanguageSelect() {
                     onClick={() => switchLanguage("en")}
                 >
                     <span>{STRINGS.ENGLISH}</span>
-                    <img src="src/assets/en.png" className="flag-img"></img>
+                    <img
+                        src="src/assets/LangSelect/en.png"
+                        className="flag-img"
+                    ></img>
                 </div>
                 <div
                     className="select__item"
                     onClick={() => switchLanguage("ru")}
                 >
                     <span>{STRINGS.RUSSIAN}</span>
-                    <img src="src/assets/ru.png" className="flag-img"></img>
+                    <img
+                        src="src/assets/LangSelect/ru.png"
+                        className="flag-img"
+                    ></img>
                 </div>
             </div>
         </div>

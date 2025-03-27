@@ -6,10 +6,13 @@ export function EventsNavBtn() {
     const navigator = useNavigate();
 
     return (
-        <div className="navigation-field" onClick={() => navigator("/login")}>
+        <div
+            className="navigation-field navigation-field-active"
+            onClick={() => navigator("/login")}
+        >
             <img
                 className="navigation-icon"
-                src="src/assets/nav-events.png"
+                src="src/assets/SideNavigation/nav-events.png"
             ></img>
             <a className="navigation-field-text">{t("nav_events")}</a>
         </div>
