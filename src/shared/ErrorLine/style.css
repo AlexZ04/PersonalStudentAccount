@@ -30,6 +30,12 @@
     z-index: -2;
 }
 
+@media (max-width: 1300px) {
+    .right-rotation-line {
+        top: 40%;
+    }
+}
+
 @media (max-width: 1000px) {
     .error-line {
         display: none;
