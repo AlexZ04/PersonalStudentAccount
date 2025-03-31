@@ -1,23 +1,18 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 import NotificationProps from "../../props/NotificationProps";
 import "./style.css";
 
-export function Notification({ type, text, visible }: NotificationProps) {
+export function Notification({ type, text }: NotificationProps) {
     const { t } = useTranslation();
-    const [isVisivle, setVisible] = useState(true);
 
     const handleClose = () => {
-        setVisible(false);
-        setTimeout(() => setVisible(true), 1000);
+        document
+            .querySelector(`.${type}-notification`)
+            ?.classList.remove("notification-visible");
     };
 
     return (
-        <div
-            className={`notification ${type}-notification ${
-                isVisivle && visible ? "notification-visible" : ""
-            }`}
-        >
+        <div className={`notification ${type}-notification`}>
             <div className="notification__header">
                 <div className="notification__header__left">
                     <img

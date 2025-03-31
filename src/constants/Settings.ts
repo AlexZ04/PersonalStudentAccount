@@ -1,0 +1,1 @@
+export const NOTIFICATION_VISIBLE_TIME = 3000;

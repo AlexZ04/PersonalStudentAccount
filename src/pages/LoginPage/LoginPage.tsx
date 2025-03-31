@@ -1,5 +1,6 @@
 import { LanguageSelect } from "../../widgets/LanguageSelect/LanguageSelect";
 import { LoginField } from "../../widgets/LoginField/LoginField";
+import { Notification } from "../../widgets/Notifications/Notification";
 import "./style.css";
 
 export function LoginPage() {
@@ -7,6 +8,12 @@ export function LoginPage() {
         <>
             <LoginField />
             <LanguageSelect />
+
+            <Notification
+                type="error"
+                text="wrong_credentials"
+                visible={false}
+            />
         </>
     );
 }

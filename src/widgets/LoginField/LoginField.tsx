@@ -4,8 +4,7 @@ import { SwitchBtn } from "../../shared/SwitchBtn";
 import { InputField } from "../InputField/InputField";
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import CONNECTION_STRING from "../../constants/connectionString";
+import { LoginUser } from "../../api/Auth";
 
 export function LoginField() {
     const { t } = useTranslation();
@@ -28,20 +27,7 @@ export function LoginField() {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        axios
-            .post(CONNECTION_STRING + "/Auth/login", formData)
-            .then((response) => {
-                const res = response.data;
-
-                if (res.loginSucceeded) {
-                    // todo
-                    navigator("/");
-                }
-            })
-            .catch((error) => {
-                // todo
-                alert(error.status);
-            });
+        LoginUser(navigator, formData);
     };
 
     return (
