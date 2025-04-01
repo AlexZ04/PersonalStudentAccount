@@ -1,0 +1,8 @@
+.loading {
+    border-radius: 50%;
+    width: 20px;
+
+    position: fixed;
+    top: 5%;
+    left: 50%;
+}

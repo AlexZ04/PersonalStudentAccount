@@ -19,3 +19,8 @@ export function ShowNotification(
         NOTIFICATION_VISIBLE_TIME
     );
 }
+
+export function ShowLoading(flag: boolean) {
+    if (flag) document.querySelector(".loading")?.classList.remove("hidden");
+    else document.querySelector(".loading")?.classList.add("hidden");
+}

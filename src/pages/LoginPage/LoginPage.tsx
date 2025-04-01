@@ -1,3 +1,4 @@
+import { Loading } from "../../shared/Loading/Loading";
 import { LanguageSelect } from "../../widgets/LanguageSelect/LanguageSelect";
 import { LoginField } from "../../widgets/LoginField/LoginField";
 import { Notification } from "../../widgets/Notifications/Notification";
@@ -14,6 +15,8 @@ export function LoginPage() {
                 text="wrong_credentials"
                 visible={false}
             />
+
+            <Loading />
         </>
     );
 }
