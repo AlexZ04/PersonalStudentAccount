@@ -3,6 +3,8 @@ import { HeaderMenu } from "../../widgets/HeaderMenu/HeaderMenu";
 import { Notification } from "../../widgets/Notifications/Notification";
 import { useState } from "react";
 import { SideMenu } from "../../widgets/SideMenu/SideMenu";
+import { LanguageSelect } from "../../widgets/LanguageSelect/LanguageSelect";
+import { Loading } from "../../shared/Loading/Loading";
 
 export function MainPage() {
     const { t } = useTranslation();
@@ -24,6 +26,8 @@ export function MainPage() {
                 type="error"
                 visible={notifVis ? true : false}
             />
+
+            <Loading />
         </>
     );
 }

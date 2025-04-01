@@ -17,5 +17,6 @@
     "nav_admin": "Administration",
     "nav_documents": "Documents",
     "nav_links": "Useful services",
-    "nav_events": "Events"
+    "nav_events": "Events",
+    "logout": "LOGOUT"
 }

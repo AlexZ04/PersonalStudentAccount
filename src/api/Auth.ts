@@ -23,3 +23,23 @@ export function LoginUser(navigator: NavigateFunction, formData: any) {
         })
         .then(() => ShowLoading(false));
 }
+
+export function RefreshToken() {
+    if (localStorage.getItem("refreshToken") === null) return;
+
+    axios
+        .post(CONNECTION_STRING + "/Auth/refresh", {
+            refreshToken: localStorage.getItem("refreshToken"),
+        })
+        .then((response) => {
+            const res = response.data;
+
+            if (response.status === 200) {
+                localStorage.setItem("accessToken", res.accessToken);
+                localStorage.setItem("refreshToken", res.refreshToken);
+            } else {
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("refreshToken");
+            }
+        });
+}

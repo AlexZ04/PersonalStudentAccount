@@ -1,5 +1,6 @@
 import i18n from "i18next";
 import { NOTIFICATION_VISIBLE_TIME } from "../constants/Settings";
+import { RefreshToken } from "../api/Auth";
 
 export const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
@@ -23,4 +24,15 @@ export function ShowNotification(
 export function ShowLoading(flag: boolean) {
     if (flag) document.querySelector(".loading")?.classList.remove("hidden");
     else document.querySelector(".loading")?.classList.add("hidden");
+}
+
+export function CheckLogin(): boolean {
+    RefreshToken();
+
+    if (
+        localStorage.getItem("refreshToken") !== null &&
+        localStorage.getItem("accessToken") !== null
+    )
+        return true;
+    return false;
 }
