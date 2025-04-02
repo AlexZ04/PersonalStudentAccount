@@ -1,6 +1,5 @@
 import axios from "axios";
 import CONNECTION_STRING from "../constants/connectionString";
-import { RefreshToken } from "./Auth";
 
 export const api = axios.create({
     baseURL: CONNECTION_STRING,
@@ -15,6 +14,7 @@ api.interceptors.response.use(
     (error) => {
         console.log(error);
         if (error.response) processStatus(error.response.status);
+        else if (error.status) processStatus(error.status);
 
         return Promise.reject(error);
     }
@@ -26,6 +26,9 @@ function processStatus(status: number) {
         //     window.location.href = "/NotFound";
         //     break;
         case 401:
+            // window.location.href = "/NotFound";
+            // localStorage.removeItem("accessToken");
+            // localStorage.removeItem("refreshToken");
             break;
         case 404:
             window.location.href = "/NotFound";

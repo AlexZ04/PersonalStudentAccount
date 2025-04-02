@@ -22,27 +22,29 @@ export function LoginUser(navigator: NavigateFunction, formData: any) {
         .then(() => ShowLoading(false));
 }
 
-export function RefreshToken() {
+export async function RefreshToken() {
     if (localStorage.getItem("refreshToken") === null) return;
 
-    api.post("Auth/refresh", {
-        refreshToken: localStorage.getItem("refreshToken"),
-    })
-        .then((response) => {
-            const res = response.data;
+    try {
+        const response = await api.post("Auth/refresh", {
+            refreshToken: localStorage.getItem("refreshToken"),
+        });
 
-            if (response.status === 200) {
-                localStorage.setItem("accessToken", res.accessToken);
-                localStorage.setItem("refreshToken", res.refreshToken);
-            } else {
-                localStorage.removeItem("accessToken");
-                localStorage.removeItem("refreshToken");
-            }
-        })
-        .catch(() => {
+        const res = response.data;
+
+        if (response.status === 200) {
+            localStorage.setItem("accessToken", res.accessToken);
+            localStorage.setItem("refreshToken", res.refreshToken);
+        } else {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
-        });
+        }
+
+        console.log(localStorage.getItem("refreshToken"));
+    } catch (error) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+    }
 }
 
 export function Logout() {

@@ -26,9 +26,7 @@ export function ShowLoading(flag: boolean) {
     else document.querySelector(".loading")?.classList.add("hidden");
 }
 
-export function CheckLogin(): boolean {
-    RefreshToken();
-
+export async function CheckLogin(): Promise<boolean> {
     if (
         localStorage.getItem("refreshToken") !== null &&
         localStorage.getItem("accessToken") !== null
