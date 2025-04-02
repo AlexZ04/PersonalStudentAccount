@@ -1,13 +1,11 @@
-import axios from "axios";
-import CONNECTION_STRING from "../constants/connectionString";
 import { NavigateFunction } from "react-router";
 import { ShowNotification, ShowLoading } from "../app/Functions";
+import { api } from "./AxioisConfig";
 
 export function LoginUser(navigator: NavigateFunction, formData: any) {
     ShowLoading(true);
 
-    axios
-        .post(CONNECTION_STRING + "/Auth/login", formData)
+    api.post("Auth/login", formData)
         .then((response) => {
             const res = response.data;
 
@@ -27,10 +25,9 @@ export function LoginUser(navigator: NavigateFunction, formData: any) {
 export function RefreshToken() {
     if (localStorage.getItem("refreshToken") === null) return;
 
-    axios
-        .post(CONNECTION_STRING + "/Auth/refresh", {
-            refreshToken: localStorage.getItem("refreshToken"),
-        })
+    api.post("Auth/refresh", {
+        refreshToken: localStorage.getItem("refreshToken"),
+    })
         .then((response) => {
             const res = response.data;
 
@@ -41,5 +38,28 @@ export function RefreshToken() {
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
             }
+        })
+        .catch(() => {
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
         });
+}
+
+export function Logout() {
+    api.post("Auth/logout", {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+    });
+
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+}
+
+export function RevokeAll() {
+    api.post("Auth/revoke_all", {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+    });
 }
