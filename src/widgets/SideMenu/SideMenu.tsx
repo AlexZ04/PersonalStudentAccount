@@ -14,7 +14,14 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
         <>
             <div className={`side-menu ${isOpen ? "open" : ""}`}>
                 <div className="side-menu__head">
-                    <div className="mini-profile-pict"></div>
+                    <div
+                        className="mini-profile-pict"
+                        style={{
+                            backgroundImage: `url(${localStorage.getItem(
+                                "avatar"
+                            )})`,
+                        }}
+                    ></div>
                     <div className="menu-arrow" onClick={handleOpen}></div>
 
                     <Navigation activeField={activeField} />

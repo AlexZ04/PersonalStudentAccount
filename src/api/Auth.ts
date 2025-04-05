@@ -60,9 +60,13 @@ export function Logout() {
 
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
+        localStorage.removeItem("avatar");
+        localStorage.removeItem("profile");
     } catch (error) {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
+        localStorage.removeItem("avatar");
+        localStorage.removeItem("profile");
     }
 }
 
