@@ -1,5 +1,6 @@
 const ERROR_MESSAGES = {
     NOT_FOUND: "NOT_FOUND",
+    UNAUTHORIZED: "UNAUTHORIZED",
 };
 
 export default ERROR_MESSAGES;

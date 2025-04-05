@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { NOTIFICATION_VISIBLE_TIME } from "../constants/Settings";
-import { RefreshToken } from "../api/Auth";
 
 export const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);

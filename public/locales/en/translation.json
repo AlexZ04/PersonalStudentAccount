@@ -4,6 +4,7 @@
     "back_to_main_page": "BACK TO MAIN PAGE",
     "what_happened": "What happened?",
     "NOT_FOUND": "Probably this page does not exist or you made a mistake when entering the address in the browser line",
+    "UNAUTHORIZED": "Authorization is required to access this page",
     "login_to_account": "Login to account",
     "enter": "ENTER",
     "remember_me": "Remember me",

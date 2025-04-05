@@ -1,25 +1,28 @@
-import { NavigateFunction } from "react-router";
-import { ShowNotification, ShowLoading } from "../app/Functions";
+import { ShowLoading } from "../app/Functions";
 import { api } from "./AxioisConfig";
 
-export function LoginUser(navigator: NavigateFunction, formData: any) {
-    ShowLoading(true);
+export async function LoginUser(formData: any): Promise<boolean> {
+    try {
+        ShowLoading(true);
 
-    api.post("Auth/login", formData)
-        .then((response) => {
-            const res = response.data;
+        const response = await api.post("Auth/login", formData);
+        const res = response.data;
 
-            if (res.loginSucceeded) {
-                localStorage.setItem("accessToken", res.accessToken);
-                localStorage.setItem("refreshToken", res.refreshToken);
+        if (res.loginSucceeded) {
+            localStorage.setItem("accessToken", res.accessToken);
+            localStorage.setItem("refreshToken", res.refreshToken);
 
-                navigator("/");
-            }
-        })
-        .catch(() => {
-            ShowNotification("error");
-        })
-        .then(() => ShowLoading(false));
+            ShowLoading(false);
+
+            return true;
+        }
+
+        ShowLoading(false);
+        return false;
+    } catch (error) {
+        ShowLoading(false);
+        return false;
+    }
 }
 
 export async function RefreshToken() {
@@ -48,14 +51,19 @@ export async function RefreshToken() {
 }
 
 export function Logout() {
-    api.post("Auth/logout", {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-    });
+    try {
+        api.post("Auth/logout", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+        });
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+    } catch (error) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+    }
 }
 
 export function RevokeAll() {
