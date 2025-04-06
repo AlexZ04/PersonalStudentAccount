@@ -51,7 +51,6 @@ body {
     top: 12dvh;
     left: 14dvw;
     width: calc(100dvw - 14dvw - 6.5dvw);
-    height: 100dvh;
 
     transition: all 1s ease;
 }

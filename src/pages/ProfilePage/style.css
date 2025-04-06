@@ -1,0 +1,34 @@
+.profile-image {
+    width: 20dvw;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.profile-block {
+    width: 20dvw;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 16px;
+}
+
+.profile-block h3 {
+    font-weight: 400;
+}
+
+.profile-data-last {
+    border: 0 !important;
+}
+
+.profile-data__name {
+    font-size: small;
+    color: #666666;
+    margin-bottom: 4px;
+}
+
+.profile-data {
+    margin-top: 0;
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid #d9d9d9;
+}

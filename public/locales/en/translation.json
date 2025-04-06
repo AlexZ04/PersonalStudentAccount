@@ -20,5 +20,16 @@
     "nav_links": "Useful services",
     "nav_events": "Events",
     "logout": "LOGOUT",
-    "profile": "Profile"
+    "profile": "Profile",
+    "personal_data": "Personal data",
+    "contacts": "Contacts",
+    "gender": "Gender",
+    "birthday": "Birthday",
+    "citizenship": "Citizenship",
+    "snils": "Snils",
+    "Phone": "Phone",
+    "phone2": "Phone 2",
+    "additional_email": "Additional Email",
+    "address": "Address",
+    "SocialMedia": "Social meida"
 }

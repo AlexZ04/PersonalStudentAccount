@@ -7,9 +7,23 @@ import "./style.css";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import ErrorInfo from "../../constants/ErrorInfo";
 import { PageName } from "../../shared/PageName/PageName";
+import { GetFile } from "../../api/File";
+import { useTranslation } from "react-i18next";
+import { ProfileInfoField } from "../../shared/ProfileInfoField";
 
 export function ProfilePage() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+    const [avatarUrl, setAvatarUrl] = useState("");
+
+    const { t } = useTranslation();
+
+    let profile = null;
+    const userProfile = localStorage.getItem("profile");
+    if (userProfile !== null) {
+        profile = JSON.parse(userProfile);
+    }
+
+    console.log(profile);
 
     useEffect(() => {
         async function checkAuth() {
@@ -17,6 +31,20 @@ export function ProfilePage() {
         }
 
         checkAuth();
+    }, []);
+
+    useEffect(() => {
+        const fetchAvatar = async () => {
+            const profileString = localStorage.getItem("profile");
+            if (profileString !== null) {
+                const avatar = await GetFile(
+                    JSON.parse(profileString).avatar.id
+                );
+                setAvatarUrl(avatar);
+            }
+        };
+
+        fetchAvatar();
     }, []);
 
     if (isLoggedIn === null) {
@@ -33,7 +61,82 @@ export function ProfilePage() {
 
                     <PageName string="profile" />
 
-                    <div className="page-container"></div>
+                    <div className="page-container">
+                        <div className="profile-info__left">
+                            <img className="profile-image" src={avatarUrl} />
+
+                            <div className="profile-block">
+                                <h3>{t("personal_data")}</h3>
+
+                                <ProfileInfoField
+                                    name="gender"
+                                    text={
+                                        profile.gender === "Female"
+                                            ? "Женский"
+                                            : "Мужской"
+                                    }
+                                    last={false}
+                                />
+
+                                <ProfileInfoField
+                                    name="birthday"
+                                    text={profile.birthDate}
+                                    last={false}
+                                />
+
+                                <ProfileInfoField
+                                    name="citizenship"
+                                    text={profile.citizenship.name}
+                                    last={false}
+                                />
+
+                                <ProfileInfoField
+                                    name="Email"
+                                    text={profile.email}
+                                    last={true}
+                                />
+                            </div>
+
+                            <div className="profile-block">
+                                <h3>{t("contacts")}</h3>
+
+                                {Array.from(
+                                    { length: profile.contacts.length },
+                                    (_, i) => (
+                                        <ProfileInfoField
+                                            name={profile.contacts[i].type}
+                                            text={profile.contacts[i].value}
+                                            last={false}
+                                        />
+                                    )
+                                )}
+
+                                {/* <ProfileInfoField
+                                    name="phone"
+                                    text={"profile.contacts"}
+                                    last={false}
+                                />
+
+                                <ProfileInfoField
+                                    name="social_media"
+                                    text={profile.contacts[0].value}
+                                    last={false}
+                                />
+
+                                <ProfileInfoField
+                                    name="additional_email"
+                                    text={""}
+                                    last={false}
+                                /> */}
+
+                                <ProfileInfoField
+                                    name="address"
+                                    text={profile.address}
+                                    last={true}
+                                />
+                            </div>
+                        </div>
+                    </div>
 
                     <Loading />
                 </>

@@ -23,7 +23,7 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
     useEffect(() => {
         const fetchAvatar = async () => {
             const profileString = localStorage.getItem("profile");
-            if (profileString) {
+            if (profileString !== null) {
                 const profile = JSON.parse(profileString);
                 const avatar = await GetFile(profile.avatar.id);
                 setAvatarUrl(avatar);

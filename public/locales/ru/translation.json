@@ -20,5 +20,16 @@
     "nav_links": "Полезные сервисы",
     "nav_events": "Мероприятия",
     "logout": "ВЫЙТИ",
-    "profile": "Профиль"
+    "profile": "Профиль",
+    "personal_data": "Личные данные",
+    "contacts": "Контакты",
+    "gender": "Пол",
+    "birthday": "Дата рождения",
+    "citizenship": "Гражданство",
+    "snils": "СНИЛС",
+    "Phone": "Телефон",
+    "phone2": "Телефон 2",
+    "additional_email": "Дополнительный Email",
+    "address": "Адрес",
+    "SocialMedia": "Социальные сети"
 }
