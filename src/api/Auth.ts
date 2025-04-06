@@ -57,17 +57,12 @@ export function Logout() {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
         });
+    } catch (error) {}
 
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("avatar");
-        localStorage.removeItem("profile");
-    } catch (error) {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("avatar");
-        localStorage.removeItem("profile");
-    }
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("avatar");
+    localStorage.removeItem("profile");
 }
 
 export function RevokeAll() {

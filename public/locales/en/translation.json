@@ -19,5 +19,6 @@
     "nav_documents": "Documents",
     "nav_links": "Useful services",
     "nav_events": "Events",
-    "logout": "LOGOUT"
+    "logout": "LOGOUT",
+    "profile": "Profile"
 }

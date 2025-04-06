@@ -6,6 +6,8 @@
     height: 100dvh;
 
     transition: all 1s ease;
+
+    z-index: 2;
 }
 
 .open {
@@ -64,6 +66,8 @@
     position: absolute;
     left: 6dvw;
     top: 6dvh;
+
+    z-index: 2;
 }
 
 .blur {
@@ -83,9 +87,14 @@
         width: 40dvw;
     }
 
+    .menu-arrow {
+        display: none;
+    }
+
     .open .menu-arrow {
         left: calc(40dvw - 13px);
         z-index: 3;
+        display: block;
     }
 
     .open .blur {

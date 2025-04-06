@@ -1,0 +1,19 @@
+.page-name {
+    font-weight: 500;
+
+    position: absolute;
+    top: 2dvh;
+    left: 14dvw;
+
+    transition: all 1s ease;
+}
+
+.side-menu-opened {
+    left: 24dvw;
+}
+
+@media (max-width: 1200px) {
+    .page-name {
+        left: 14dvw !important;
+    }
+}

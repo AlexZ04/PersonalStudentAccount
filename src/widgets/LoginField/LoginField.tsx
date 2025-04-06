@@ -2,11 +2,10 @@ import { useTranslation } from "react-i18next";
 import { LoginBtn } from "../../shared/LoginBtn";
 import { SwitchBtn } from "../../shared/SwitchBtn";
 import { InputField } from "../InputField/InputField";
-import { FormEvent, use, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router";
 import { LoginUser } from "../../api/Auth";
 import { GetCurrentProfile } from "../../api/Profile";
-import { GetFile } from "../../api/File";
 import { ShowNotification } from "../../app/Functions";
 
 export function LoginField() {
@@ -34,10 +33,9 @@ export function LoginField() {
 
         if (isLoginSuccessed) {
             const userProfile = await GetCurrentProfile();
-            const userAvatar = await GetFile(userProfile.avatar.id);
 
             localStorage.setItem("profile", JSON.stringify(userProfile));
-            localStorage.setItem("avatar", userAvatar);
+            localStorage.setItem("avatar", userProfile.avatar.id);
 
             navigator("/");
         } else ShowNotification("error");

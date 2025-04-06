@@ -1,6 +1,6 @@
 import { api } from "./AxioisConfig";
 
-export async function GetFile(id: string) {
+export async function GetFile(id: string | null) {
     try {
         const response = await api.get(`Files/${id}`, {
             headers: {

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import "./style.css";
-import { Logout } from "../../api/Auth";
+import { Logout, RevokeAll } from "../../api/Auth";
 
 export function GlobalLogoutButton() {
     const { t } = useTranslation();
@@ -11,8 +11,9 @@ export function GlobalLogoutButton() {
         <button
             className="blue btn global-login-btn"
             onClick={() => {
-                navigator("/");
                 Logout();
+                RevokeAll();
+                navigator("/login");
             }}
         >
             {t("logout")}

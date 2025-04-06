@@ -2,12 +2,17 @@ import { useState } from "react";
 import { Navigation } from "../../entities/Navigation/Navigation";
 import ActiveNavigationProps from "../../props/ActiveNavigationProps";
 import "./style.css";
+import { GetFile } from "../../api/File";
 
 export function SideMenu({ activeField }: ActiveNavigationProps) {
     const [isOpen, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(!isOpen);
+
+        document
+            .querySelector(".page-name")
+            ?.classList.toggle("side-menu-opened");
     };
 
     return (
@@ -16,11 +21,11 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
                 <div className="side-menu__head">
                     <div
                         className="mini-profile-pict"
-                        style={{
-                            backgroundImage: `url(${localStorage.getItem(
-                                "avatar"
-                            )})`,
-                        }}
+                        // style={{
+                        //     backgroundImage: `url(${GetFile(
+                        //         localStorage.getItem("profile")
+                        //     )})`,
+                        // }}
                     ></div>
                     <div className="menu-arrow" onClick={handleOpen}></div>
 

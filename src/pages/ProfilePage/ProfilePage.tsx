@@ -6,6 +6,7 @@ import { SideMenu } from "../../widgets/SideMenu/SideMenu";
 import "./style.css";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import ErrorInfo from "../../constants/ErrorInfo";
+import { PageName } from "../../shared/PageName/PageName";
 
 export function ProfilePage() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
@@ -29,6 +30,8 @@ export function ProfilePage() {
                 <>
                     <SideMenu activeField="profile" />
                     <HeaderMenu />
+
+                    <PageName string="profile" />
 
                     <Loading />
                 </>
