@@ -1,7 +1,7 @@
 .side-menu {
     background-color: #f9f9f9;
 
-    position: relative;
+    position: fixed;
     width: 10dvw;
     height: 100dvh;
 

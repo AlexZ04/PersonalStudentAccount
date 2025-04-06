@@ -33,6 +33,8 @@ export function ProfilePage() {
 
                     <PageName string="profile" />
 
+                    <div className="page-container"></div>
+
                     <Loading />
                 </>
             ) : (

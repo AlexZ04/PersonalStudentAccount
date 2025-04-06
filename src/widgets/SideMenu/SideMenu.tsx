@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "../../entities/Navigation/Navigation";
 import ActiveNavigationProps from "../../props/ActiveNavigationProps";
 import "./style.css";
@@ -6,6 +6,7 @@ import { GetFile } from "../../api/File";
 
 export function SideMenu({ activeField }: ActiveNavigationProps) {
     const [isOpen, setOpen] = useState(false);
+    const [avatarUrl, setAvatarUrl] = useState("");
 
     const handleOpen = () => {
         setOpen(!isOpen);
@@ -13,7 +14,24 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
         document
             .querySelector(".page-name")
             ?.classList.toggle("side-menu-opened");
+
+        document
+            .querySelector(".page-container")
+            ?.classList.toggle("side-menu-opened");
     };
+
+    useEffect(() => {
+        const fetchAvatar = async () => {
+            const profileString = localStorage.getItem("profile");
+            if (profileString) {
+                const profile = JSON.parse(profileString);
+                const avatar = await GetFile(profile.avatar.id);
+                setAvatarUrl(avatar);
+            }
+        };
+
+        fetchAvatar();
+    }, []);
 
     return (
         <>
@@ -21,11 +39,9 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
                 <div className="side-menu__head">
                     <div
                         className="mini-profile-pict"
-                        // style={{
-                        //     backgroundImage: `url(${GetFile(
-                        //         localStorage.getItem("profile")
-                        //     )})`,
-                        // }}
+                        style={{
+                            backgroundImage: `url(${avatarUrl})`,
+                        }}
                     ></div>
                     <div className="menu-arrow" onClick={handleOpen}></div>
 

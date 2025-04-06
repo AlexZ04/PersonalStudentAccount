@@ -9,6 +9,8 @@ body {
     background-color: #efefef;
     margin: 0;
     padding: 0;
+
+    overflow-x: hidden;
 }
 
 .blue {
@@ -42,4 +44,20 @@ body {
 
 .hidden {
     display: none;
+}
+
+.page-container {
+    position: absolute;
+    top: 12dvh;
+    left: 14dvw;
+    width: calc(100dvw - 14dvw - 6.5dvw);
+    height: 100dvh;
+
+    transition: all 1s ease;
+}
+
+@media (max-width: 1200px) {
+    .page-container {
+        left: 14dvw !important;
+    }
 }
