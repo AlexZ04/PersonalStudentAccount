@@ -10,6 +10,8 @@
     margin-bottom: 20px;
     background-color: #f9f9f9;
     padding: 16px;
+
+    word-break: break-all;
 }
 
 .profile-block h3 {
@@ -31,4 +33,14 @@
     padding-bottom: 4px;
 
     border-bottom: 1px solid #d9d9d9;
+}
+
+.profile-info__left {
+    margin-right: 10px;
+}
+
+.profile-info__right h2 {
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 2.5dvw;
 }

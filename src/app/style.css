@@ -47,6 +47,7 @@ body {
 }
 
 .page-container {
+    display: flex;
     position: absolute;
     top: 12dvh;
     left: 14dvw;

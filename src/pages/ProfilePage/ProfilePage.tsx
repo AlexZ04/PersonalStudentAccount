@@ -111,30 +111,22 @@ export function ProfilePage() {
                                     )
                                 )}
 
-                                {/* <ProfileInfoField
-                                    name="phone"
-                                    text={"profile.contacts"}
-                                    last={false}
-                                />
-
-                                <ProfileInfoField
-                                    name="social_media"
-                                    text={profile.contacts[0].value}
-                                    last={false}
-                                />
-
-                                <ProfileInfoField
-                                    name="additional_email"
-                                    text={""}
-                                    last={false}
-                                /> */}
-
                                 <ProfileInfoField
                                     name="address"
                                     text={profile.address}
                                     last={true}
                                 />
                             </div>
+                        </div>
+
+                        <div className="profile-info__right">
+                            <h2>
+                                {profile.lastName +
+                                    " " +
+                                    profile.firstName +
+                                    " " +
+                                    profile.patronymic}
+                            </h2>
                         </div>
                     </div>
 
