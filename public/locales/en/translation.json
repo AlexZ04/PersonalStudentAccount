@@ -31,5 +31,7 @@
     "phone2": "Phone 2",
     "additional_email": "Additional Email",
     "address": "Address",
-    "SocialMedia": "Social meida"
+    "SocialMedia": "Social meida",
+    "education": "Education",
+    "work": "Work"
 }

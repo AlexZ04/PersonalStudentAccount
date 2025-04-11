@@ -31,5 +31,7 @@
     "phone2": "Телефон 2",
     "additional_email": "Дополнительный Email",
     "address": "Адрес",
-    "SocialMedia": "Социальные сети"
+    "SocialMedia": "Социальные сети",
+    "education": "Обучение",
+    "work": "Работа"
 }

@@ -15,6 +15,8 @@ import {
     GetCurrentUserTeacher,
 } from "../../api/Profile";
 import { RefreshToken } from "../../api/Auth";
+import { EducationCard } from "../../widgets/EducationCard/EducationCard";
+import { WorkCard } from "../../widgets/WorkCard/WorkCard";
 
 export function ProfilePage() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
@@ -22,6 +24,9 @@ export function ProfilePage() {
     const [profile, setProfile] = useState<any>("");
     const [studentInfo, setStudentInfo] = useState<any>("");
     const [teacherInfo, setTeacherInfo] = useState<any>("");
+    const [selectedSection, setSelectionSection] = useState<
+        "work" | "education"
+    >("education");
 
     const { t } = useTranslation();
 
@@ -87,7 +92,16 @@ export function ProfilePage() {
         fetchAvatar();
     }, []);
 
-    console.log(profile);
+    useEffect(() => {
+        if (profile.userProfile && profile.userProfile.includes("Student")) {
+            setSelectionSection("education");
+        } else if (
+            profile.userProfile &&
+            profile.userProfile.includes("Employee")
+        ) {
+            setSelectionSection("work");
+        }
+    }, [profile]);
 
     if (isLoggedIn === null) {
         ShowLoading(true);
@@ -174,6 +188,65 @@ export function ProfilePage() {
                                     " " +
                                     profile.patronymic}
                             </h2>
+
+                            <div className="profile-info__right-info">
+                                <div className="profile-info__right-info__navigation">
+                                    {studentInfo !== "" ? (
+                                        <a
+                                            className={
+                                                selectedSection === "education"
+                                                    ? "a-selected"
+                                                    : ""
+                                            }
+                                            onClick={() =>
+                                                setSelectionSection("education")
+                                            }
+                                        >
+                                            {t("education")}
+                                        </a>
+                                    ) : (
+                                        ""
+                                    )}
+                                    {teacherInfo !== "" ? (
+                                        <a
+                                            className={
+                                                selectedSection === "work"
+                                                    ? "a-selected"
+                                                    : ""
+                                            }
+                                            onClick={() =>
+                                                setSelectionSection("work")
+                                            }
+                                        >
+                                            {t("work")}
+                                        </a>
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+
+                                <div className="profile-info__right-info__cards">
+                                    {selectedSection === "education" &&
+                                        studentInfo.educationEntries &&
+                                        Array.from(
+                                            {
+                                                length: studentInfo
+                                                    .educationEntries.length,
+                                            },
+                                            (_, i) => <EducationCard key={i} />
+                                        )}
+
+                                    {selectedSection === "work" &&
+                                        studentInfo.educationEntries &&
+                                        Array.from(
+                                            {
+                                                length: teacherInfo.experience
+                                                    .length,
+                                            },
+                                            (_, i) => <WorkCard key={i} />
+                                        )}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
