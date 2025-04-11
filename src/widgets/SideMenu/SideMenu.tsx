@@ -3,10 +3,12 @@ import { Navigation } from "../../entities/Navigation/Navigation";
 import ActiveNavigationProps from "../../props/ActiveNavigationProps";
 import "./style.css";
 import { GetFile } from "../../api/File";
+import { CheckLogin } from "../../app/Functions";
 
 export function SideMenu({ activeField }: ActiveNavigationProps) {
     const [isOpen, setOpen] = useState(false);
     const [avatarUrl, setAvatarUrl] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
     const handleOpen = () => {
         setOpen(!isOpen);
@@ -23,14 +25,24 @@ export function SideMenu({ activeField }: ActiveNavigationProps) {
     useEffect(() => {
         const fetchAvatar = async () => {
             const profileString = localStorage.getItem("profile");
-            if (profileString !== null) {
+            if (isLoggedIn && profileString) {
                 const profile = JSON.parse(profileString);
-                const avatar = await GetFile(profile.avatar.id);
-                setAvatarUrl(avatar);
+                if (profile.avatar) {
+                    const avatar = await GetFile(profile.avatar.id);
+                    setAvatarUrl(avatar);
+                }
             }
         };
 
         fetchAvatar();
+    }, [isLoggedIn]);
+
+    useEffect(() => {
+        const checkAuth = async () => {
+            setIsLoggedIn(await CheckLogin());
+        };
+
+        checkAuth();
     }, []);
 
     return (

@@ -35,7 +35,9 @@ export function LoginField() {
             const userProfile = await GetCurrentProfile();
 
             localStorage.setItem("profile", JSON.stringify(userProfile));
-            localStorage.setItem("avatar", userProfile.avatar.id);
+
+            if (userProfile.avatar)
+                localStorage.setItem("avatar", userProfile.avatar.id);
 
             navigator("/");
         } else ShowNotification("error");

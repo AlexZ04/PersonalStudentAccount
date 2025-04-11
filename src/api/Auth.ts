@@ -42,8 +42,6 @@ export async function RefreshToken() {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
         }
-
-        console.log(localStorage.getItem("refreshToken"));
     } catch (error) {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");

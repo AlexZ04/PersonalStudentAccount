@@ -17,3 +17,37 @@ export async function GetCurrentProfile() {
         return "";
     }
 }
+
+export async function GetCurrentUserStudent() {
+    try {
+        const response = await api.get("Profile/student", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                accept: "text/plain",
+            },
+        });
+
+        const res = response.data;
+
+        return res;
+    } catch (error) {
+        return "";
+    }
+}
+
+export async function GetCurrentUserTeacher() {
+    try {
+        const response = await api.get("Profile/employee", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                accept: "text/plain",
+            },
+        });
+
+        const res = response.data;
+
+        return res;
+    } catch (error) {
+        return "";
+    }
+}

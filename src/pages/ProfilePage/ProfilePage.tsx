@@ -10,25 +10,64 @@ import { PageName } from "../../shared/PageName/PageName";
 import { GetFile } from "../../api/File";
 import { useTranslation } from "react-i18next";
 import { ProfileInfoField } from "../../shared/ProfileInfoField";
+import {
+    GetCurrentUserStudent,
+    GetCurrentUserTeacher,
+} from "../../api/Profile";
+import { RefreshToken } from "../../api/Auth";
 
 export function ProfilePage() {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
     const [avatarUrl, setAvatarUrl] = useState("");
+    const [profile, setProfile] = useState<any>("");
+    const [studentInfo, setStudentInfo] = useState<any>("");
+    const [teacherInfo, setTeacherInfo] = useState<any>("");
 
     const { t } = useTranslation();
 
-    let profile = null;
-    const userProfile = localStorage.getItem("profile");
-    if (userProfile !== null) {
-        profile = JSON.parse(userProfile);
-    }
-
-    console.log(profile);
+    useEffect(() => {
+        const userProfile = localStorage.getItem("profile");
+        if (userProfile) setProfile(JSON.parse(userProfile));
+    }, []);
 
     useEffect(() => {
-        async function checkAuth() {
+        const getSpecProfiles = async () => {
+            if (
+                isLoggedIn &&
+                profile.userTypes &&
+                profile.userTypes.includes("Student")
+            ) {
+                let student = await GetCurrentUserStudent();
+
+                if (student === "") {
+                    await RefreshToken();
+                    student = await GetCurrentUserStudent();
+                }
+                setStudentInfo(student);
+            }
+
+            if (
+                isLoggedIn &&
+                profile.userTypes &&
+                profile.userTypes.includes("Employee")
+            ) {
+                let student = await GetCurrentUserTeacher();
+
+                if (student === "") {
+                    await RefreshToken();
+                    student = await GetCurrentUserTeacher();
+                }
+                setTeacherInfo(student);
+            }
+        };
+
+        getSpecProfiles();
+    }, [profile, isLoggedIn]);
+
+    useEffect(() => {
+        const checkAuth = async () => {
             setIsLoggedIn(await CheckLogin());
-        }
+        };
 
         checkAuth();
     }, []);
@@ -36,7 +75,8 @@ export function ProfilePage() {
     useEffect(() => {
         const fetchAvatar = async () => {
             const profileString = localStorage.getItem("profile");
-            if (profileString !== null) {
+
+            if (profileString && JSON.parse(profileString).avatar) {
                 const avatar = await GetFile(
                     JSON.parse(profileString).avatar.id
                 );
@@ -46,6 +86,8 @@ export function ProfilePage() {
 
         fetchAvatar();
     }, []);
+
+    console.log(profile);
 
     if (isLoggedIn === null) {
         ShowLoading(true);
@@ -84,11 +126,15 @@ export function ProfilePage() {
                                     last={false}
                                 />
 
-                                <ProfileInfoField
-                                    name="citizenship"
-                                    text={profile.citizenship.name}
-                                    last={false}
-                                />
+                                {profile.citizenship ? (
+                                    <ProfileInfoField
+                                        name="citizenship"
+                                        text={profile.citizenship.name}
+                                        last={false}
+                                    />
+                                ) : (
+                                    ""
+                                )}
 
                                 <ProfileInfoField
                                     name="Email"
@@ -104,6 +150,7 @@ export function ProfilePage() {
                                     { length: profile.contacts.length },
                                     (_, i) => (
                                         <ProfileInfoField
+                                            key={i}
                                             name={profile.contacts[i].type}
                                             text={profile.contacts[i].value}
                                             last={false}
