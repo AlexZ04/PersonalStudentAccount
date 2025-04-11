@@ -118,133 +118,159 @@ export function ProfilePage() {
                     <PageName string="profile" />
 
                     <div className="page-container">
-                        <div className="profile-info__left">
-                            <img className="profile-image" src={avatarUrl} />
+                        <h2 className="profile-page-small">Профиль</h2>
 
-                            <div className="profile-block">
-                                <h3>{t("personal_data")}</h3>
-
-                                <ProfileInfoField
-                                    name="gender"
-                                    text={
-                                        profile.gender === "Female"
-                                            ? "Женский"
-                                            : "Мужской"
-                                    }
-                                    last={false}
-                                />
-
-                                <ProfileInfoField
-                                    name="birthday"
-                                    text={profile.birthDate}
-                                    last={false}
-                                />
-
-                                {profile.citizenship ? (
-                                    <ProfileInfoField
-                                        name="citizenship"
-                                        text={profile.citizenship.name}
-                                        last={false}
-                                    />
-                                ) : (
-                                    ""
-                                )}
-
-                                <ProfileInfoField
-                                    name="Email"
-                                    text={profile.email}
-                                    last={true}
-                                />
-                            </div>
-
-                            <div className="profile-block">
-                                <h3>{t("contacts")}</h3>
-
-                                {Array.from(
-                                    { length: profile.contacts.length },
-                                    (_, i) => (
-                                        <ProfileInfoField
-                                            key={i}
-                                            name={profile.contacts[i].type}
-                                            text={profile.contacts[i].value}
-                                            last={false}
-                                        />
-                                    )
-                                )}
-
-                                <ProfileInfoField
-                                    name="address"
-                                    text={profile.address}
-                                    last={true}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="profile-info__right">
-                            <h2>
+                        <div className="small-screen-data">
+                            <h2 className="user-name">
                                 {profile.lastName +
                                     " " +
                                     profile.firstName +
                                     " " +
                                     profile.patronymic}
                             </h2>
+                        </div>
 
-                            <div className="profile-info__right-info">
-                                <div className="profile-info__right-info__navigation">
-                                    {studentInfo !== "" ? (
-                                        <a
-                                            className={
-                                                selectedSection === "education"
-                                                    ? "a-selected"
-                                                    : ""
-                                            }
-                                            onClick={() =>
-                                                setSelectionSection("education")
-                                            }
-                                        >
-                                            {t("education")}
-                                        </a>
-                                    ) : (
-                                        ""
-                                    )}
-                                    {teacherInfo !== "" ? (
-                                        <a
-                                            className={
-                                                selectedSection === "work"
-                                                    ? "a-selected"
-                                                    : ""
-                                            }
-                                            onClick={() =>
-                                                setSelectionSection("work")
-                                            }
-                                        >
-                                            {t("work")}
-                                        </a>
-                                    ) : (
-                                        ""
-                                    )}
+                        <div className="profile-info">
+                            <div className="profile-info__left">
+                                <div className="profile-image-container">
+                                    {" "}
+                                    <img
+                                        className="profile-image"
+                                        src={avatarUrl}
+                                    />
                                 </div>
 
-                                <div className="profile-info__right-info__cards">
-                                    {selectedSection === "education" &&
-                                        studentInfo.educationEntries &&
-                                        Array.from(
-                                            {
-                                                length: studentInfo
-                                                    .educationEntries.length,
-                                            },
-                                            (_, i) => <EducationCard key={i} />
-                                        )}
+                                <div className="profile-block">
+                                    <h3>{t("personal_data")}</h3>
 
-                                    {selectedSection === "work" &&
-                                        studentInfo.educationEntries &&
-                                        Array.from(
-                                            {
-                                                length: teacherInfo.experience
-                                                    .length,
-                                            },
-                                            (_, i) => <WorkCard key={i} />
+                                    <ProfileInfoField
+                                        name="gender"
+                                        text={
+                                            profile.gender === "Female"
+                                                ? "Женский"
+                                                : "Мужской"
+                                        }
+                                        last={false}
+                                    />
+
+                                    <ProfileInfoField
+                                        name="birthday"
+                                        text={profile.birthDate}
+                                        last={false}
+                                    />
+
+                                    {profile.citizenship ? (
+                                        <ProfileInfoField
+                                            name="citizenship"
+                                            text={profile.citizenship.name}
+                                            last={false}
+                                        />
+                                    ) : (
+                                        ""
+                                    )}
+
+                                    <ProfileInfoField
+                                        name="Email"
+                                        text={profile.email}
+                                        last={true}
+                                    />
+                                </div>
+
+                                <div className="profile-block">
+                                    <h3>{t("contacts")}</h3>
+
+                                    {Array.from(
+                                        { length: profile.contacts.length },
+                                        (_, i) => (
+                                            <ProfileInfoField
+                                                key={i}
+                                                name={profile.contacts[i].type}
+                                                text={profile.contacts[i].value}
+                                                last={false}
+                                            />
+                                        )
+                                    )}
+
+                                    <ProfileInfoField
+                                        name="address"
+                                        text={profile.address}
+                                        last={true}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="profile-info__right">
+                                <h2 className="user-name-big">
+                                    {profile.lastName +
+                                        " " +
+                                        profile.firstName +
+                                        " " +
+                                        profile.patronymic}
+                                </h2>
+
+                                <div className="profile-info__right-info">
+                                    <div className="profile-info__right-info__navigation">
+                                        {studentInfo !== "" ? (
+                                            <a
+                                                className={
+                                                    selectedSection ===
+                                                    "education"
+                                                        ? "a-selected"
+                                                        : ""
+                                                }
+                                                onClick={() =>
+                                                    setSelectionSection(
+                                                        "education"
+                                                    )
+                                                }
+                                            >
+                                                {t("education")}
+                                            </a>
+                                        ) : (
+                                            ""
                                         )}
+                                        {teacherInfo !== "" ? (
+                                            <a
+                                                className={
+                                                    selectedSection === "work"
+                                                        ? "a-selected"
+                                                        : ""
+                                                }
+                                                onClick={() =>
+                                                    setSelectionSection("work")
+                                                }
+                                            >
+                                                {t("work")}
+                                            </a>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </div>
+
+                                    <div className="profile-info__right-info__cards">
+                                        {selectedSection === "education" &&
+                                            studentInfo.educationEntries &&
+                                            Array.from(
+                                                {
+                                                    length: studentInfo
+                                                        .educationEntries
+                                                        .length,
+                                                },
+                                                (_, i) => (
+                                                    <EducationCard key={i} />
+                                                )
+                                            )}
+
+                                        {selectedSection === "work" &&
+                                            studentInfo.educationEntries &&
+                                            Array.from(
+                                                {
+                                                    length: teacherInfo
+                                                        .experience.length,
+                                                },
+                                                (_, i) => <WorkCard key={i} />
+                                            )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

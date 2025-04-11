@@ -1,3 +1,7 @@
+.profile-info {
+    display: flex;
+}
+
 .profile-image {
     width: 20dvw;
     border-radius: 8px;
@@ -16,6 +20,11 @@
 
 .profile-block h3 {
     font-weight: 400;
+    font-size: 1.5dvw;
+}
+
+.profile-block p {
+    font-size: 1dvw;
 }
 
 .profile-data-last {
@@ -43,7 +52,8 @@
     width: 100%;
 }
 
-.profile-info__right h2 {
+.user-name,
+.user-name-big {
     margin-top: 0;
     font-weight: 500;
     font-size: 2.5dvw;
@@ -83,4 +93,64 @@
 .profile-info__right-info__cards {
     padding: 10px 20px;
     padding-bottom: 30px;
+}
+
+.small-screen-data {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .profile-block h3 {
+        font-size: 2.5dvw;
+    }
+
+    .profile-block p {
+        font-size: 1.8dvw;
+    }
+
+    .profile-info__right-info__navigation {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 900px) {
+    .user-name-big {
+        display: none;
+    }
+
+    .small-screen-data {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-block {
+        width: 100%;
+    }
+
+    .profile-info__right-info__navigation {
+        font-size: small;
+    }
+
+    .profile-image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-block h3 {
+        font-size: 3dvw;
+    }
+
+    .profile-block p {
+        font-size: 2.2dvw;
+    }
+
+    .profile-image {
+        width: 35dvw;
+    }
 }
